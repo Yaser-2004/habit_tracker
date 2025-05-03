@@ -170,7 +170,7 @@ export default function HabitTracker() {
     setDisplay(false);
   };
   
-  const toggleHabit = (ht) => {
+  const toggleHabit = (ht: string) => {
     setNewGoals((prev) =>
       prev.map((habit) =>
         habit.habit === ht ? { ...habit, isCompleted: !habit.isCompleted } : habit
@@ -210,7 +210,9 @@ export default function HabitTracker() {
           <>
             {/* Daily Check-in Card */}
 
-          <h1 className='mt-8 font-bold text-4xl max-sm:text-3xl'>Hi John! You're on a <span className='text-blue-600'>7-day</span> streak — keep the momentum going!</h1>
+          <h1 className='mt-8 font-bold text-4xl max-sm:text-3xl'>
+            Hi John! You&apos;re on a <span className='text-blue-600'>7-day</span> streak — keep the momentum going!
+          </h1>
           <p className='mb-8 mt-2 text-lg'>Keep adding new habits and complete them by crossing them in Habits section below :)</p>
 
           <div className='flex max-sm:flex-col max-sm:gap-3 items-start gap-10'>
@@ -541,8 +543,6 @@ export default function HabitTracker() {
                         tick={false}
                       />
                       <RadialBar
-                        background
-                        clockWise
                         dataKey="value"
                       />
                     </RadialBarChart>
@@ -694,7 +694,7 @@ export default function HabitTracker() {
                 
                 {/* Goals Panel */}
                 <div className="border border-gray-400 rounded-lg p-4 text-xl">
-                  <h3 className="text-2xl font-bold mb-4">This Month's Goals</h3>
+                  <h3 className="text-2xl font-bold mb-4">This Month&apos;s Goals</h3>
                   
                   {goals.map((goal, index) => (
                     <div key={index} className="mb-4">
