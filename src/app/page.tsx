@@ -190,7 +190,7 @@ export default function Home() {
   
 
   return (
-    <div className={`flex flex-col h-screen bg-gray-50 ${zain.className}`}>
+    <div className={`flex text-black flex-col h-screen bg-gray-50 ${zain.className}`}>
       {/* Top Navigation */}
       <header className="bg-indigo-600 text-white p-4 px-20 max-sm:px-3">
         <div className="flex justify-between items-center">
