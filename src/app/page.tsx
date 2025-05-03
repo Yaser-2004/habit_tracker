@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { HTMLAttributes, useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { AlertCircle, CheckCircle, Award, Calendar, TrendingUp, Settings, CalendarIcon, Flame, Circle } from 'lucide-react';
 import { RadialBarChart, RadialBar, PolarAngleAxis } from 'recharts';
@@ -21,7 +21,7 @@ const data = [
   },
 ];
 
-export function Card({ className = "", ...props }: React.HTMLAttributes<HTMLDivElement>) {
+function Card({ className = "", ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={`rounded-lg border bg-card text-card-foreground shadow-sm ${className}`}
@@ -30,37 +30,37 @@ export function Card({ className = "", ...props }: React.HTMLAttributes<HTMLDivE
   )
 }
 
-export function CardHeader({ className = "", ...props }: React.HTMLAttributes<HTMLDivElement>) {
+function CardHeader({ className = "", ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div className={`flex flex-col space-y-1.5 p-6 ${className}`} {...props} />
   )
 }
 
-export function CardTitle({ className = "", ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
+function CardTitle({ className = "", ...props }: HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h3 className={`text-2xl font-semibold leading-none tracking-tight ${className}`} {...props} />
   )
 }
 
-export function CardDescription({ className = "", ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
-  return (
-    <p className={`text-sm text-muted-foreground ${className}`} {...props} />
-  )
-}
+// function CardDescription({ className = "", ...props }: HTMLAttributes<HTMLParagraphElement>) {
+//   return (
+//     <p className={`text-sm text-muted-foreground ${className}`} {...props} />
+//   )
+// }
 
-export function CardContent({ className = "", ...props }: React.HTMLAttributes<HTMLDivElement>) {
+function CardContent({ className = "", ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div className={`p-6 pt-0 ${className}`} {...props} />
   )
 }
 
-export function CardFooter({ className = "", ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div className={`flex items-center p-6 pt-0 ${className}`} {...props} />
-  )
-}
+// export function CardFooter({ className = "", ...props }: HTMLAttributes<HTMLDivElement>) {
+//   return (
+//     <div className={`flex items-center p-6 pt-0 ${className}`} {...props} />
+//   )
+// }
 
-export default function HabitTracker() {
+export default function Home() {
   const [activeTab, setActiveTab] = useState('dashboard');
 
   // Sample data for the charts
