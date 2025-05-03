@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
-import { AlertCircle, CheckCircle, Droplets, Monitor, Moon, Award, Calendar, TrendingUp, Settings, CalendarIcon, Flame, Circle } from 'lucide-react';
+import { AlertCircle, CheckCircle, Award, Calendar, TrendingUp, Settings, CalendarIcon, Flame, Circle } from 'lucide-react';
 import { RadialBarChart, RadialBar, PolarAngleAxis } from 'recharts';
 import { Zain } from 'next/font/google';
 import { motion } from "framer-motion";
@@ -62,9 +62,6 @@ export function CardFooter({ className = "", ...props }: React.HTMLAttributes<HT
 
 export default function HabitTracker() {
   const [activeTab, setActiveTab] = useState('dashboard');
-  const [waterIntake, setWaterIntake] = useState(4);
-  const [sleepHours, setSleepHours] = useState(7);
-  const [screenTime, setScreenTime] = useState(3);
 
   // Sample data for the charts
   const weeklyData = [
@@ -85,12 +82,12 @@ export default function HabitTracker() {
     { habit: 'Reading', streak: 0, goal: 15, completed: false },
   ];
 
-  const [habits, setHabits] = useState([
+  const habits = [
     { id: 1, name: 'Water', isCompleted: true, color: 'bg-green-500' },
     { id: 2, name: 'Read', isCompleted: true, color: 'bg-blue-500' },
     { id: 3, name: 'Meditate', isCompleted: false, color: 'bg-amber-400' },
     { id: 4, name: 'Exercise', isCompleted: false, color: 'bg-purple-400' },
-  ]);
+  ];
 
   const [currentMonth] = useState('May 2025');
   const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -149,7 +146,7 @@ export default function HabitTracker() {
   ]);
 
   const [habitName, setHabitName] = useState('');
-  const [habitTarget, setHabitTarget] = useState('');
+  const [habitTarget, setHabitTarget] = useState(0);
   const [habitUnit, setHabitUnit] = useState('');
   const [display, setDisplay] = useState(false);
 
@@ -157,7 +154,7 @@ export default function HabitTracker() {
   const [isRegularTipEnabled, setIsRegularTipEnabled] = useState(true);
 
   const addHabit = () => {
-    if (habitName.trim() === '' || habitTarget === '' || habitUnit.trim() === '') return;
+    if (habitName.trim() === '' || habitTarget === 0 || habitUnit.trim() === '') return;
 
     const newHabit = {
       habit: habitName,
@@ -168,7 +165,7 @@ export default function HabitTracker() {
 
     setNewGoals([...newGoals, newHabit]);
     setHabitName('');
-    setHabitTarget('');
+    setHabitTarget(0);
     setHabitUnit('');
     setDisplay(false);
   };
@@ -280,7 +277,7 @@ export default function HabitTracker() {
                       placeholder="Habit Target"
                       className="border border-gray-300 rounded-lg p-2 w-full mt-2"
                       value={habitTarget}
-                      onChange={(e) => setHabitTarget(e.target.value)}
+                      onChange={(e) => setHabitTarget(parseFloat(e.target.value))}
                       max={20}
                     />
 
